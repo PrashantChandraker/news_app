@@ -30,7 +30,7 @@ class _OnboardingState extends State<Onboarding> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: AppColors.lightWhiteColor,
-                borderRadius: BorderRadius.vertical(
+                borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(50),
                 ),
               ),

@@ -37,10 +37,10 @@ class CategoryListTile extends StatelessWidget {
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    offset: const Offset(4, 4),
-                    blurRadius: 4,
-                  ),
+                      color: Colors.black.withOpacity(0.2),
+                      offset: const Offset(2, 2),
+                      blurRadius: 4,
+                      spreadRadius: 2),
                 ],
                 border: Border.all(width: 4, color: AppColors.shadowBlack),
                 borderRadius: BorderRadius.circular(60)),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/Utils/appColors.dart';
 import 'package:news_app/model/category_model.dart';
 import 'package:news_app/pages/category_list_tile.dart';
+import 'package:news_app/pages/hottest_news_box.dart';
 import 'package:news_app/services/data.dart';
 import 'package:news_app/widgets/dynamic_text.dart';
 
@@ -60,15 +61,15 @@ class _HomePageState extends State<HomePage> {
               height: MediaQuery.of(context).size.height / 2.4,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
-                  hottest_news_box(context),
-                  hottest_news_box(context),
-                  hottest_news_box(context),
-                  hottest_news_box(context),
+                children: const [
+                  HottestNewsBox(),
+                  HottestNewsBox(),
+                  HottestNewsBox(),
+                  HottestNewsBox(),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             DynamicText(
@@ -76,10 +77,12 @@ class _HomePageState extends State<HomePage> {
               textSize: 20,
               textWeight: FontWeight.w900,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Expanded(
+            Container(
+              height: 130,
+              // color: Colors.amber,
               child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -90,91 +93,16 @@ class _HomePageState extends State<HomePage> {
                       categoryName: categories[index].categoryName,
                     );
                   }),
-            )
+            ),
+            DynamicText(
+              text: "Trending News",
+              textSize: 20,
+              textWeight: FontWeight.w900,
+            ),
+            const SizedBox(
+              height: 5,
+            ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Container hottest_news_box(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
-      child: Material(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-            bottomLeft: Radius.circular(10)),
-        elevation: 5,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10)),
-            color: AppColors.primaryBlue,
-            // borderRadius: BorderRadius.circular(100),
-          ),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  "assets/demo_news.jpeg",
-                  width: MediaQuery.of(context).size.width / 1.9,
-                  fit: BoxFit.cover,
-                  height: 200,
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                width: MediaQuery.of(context).size.width / 1.8,
-                child: DynamicText(
-                  text: "Please subscribe to PNews's channel",
-                  textSize: 14,
-                  textWeight: FontWeight.bold,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                width: MediaQuery.of(context).size.width / 1.8,
-                child: DynamicText(
-                  text: "Loreum ipsum is simply dummmy text of printing",
-                  textSize: 12,
-                  textWeight: FontWeight.normal,
-                ),
-              ),
-              Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 2.2,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.lightWhiteColor,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                      ),
-                    ),
-                    width: MediaQuery.of(context).size.width / 7,
-                    child: const Icon(
-                      Icons.arrow_right_alt,
-                      size: 35,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
         ),
       ),
     );

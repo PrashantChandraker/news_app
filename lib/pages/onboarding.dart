@@ -27,7 +27,7 @@ class _OnboardingState extends State<Onboarding> {
               margin: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height / 1.7,
               ),
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: AppColors.lightWhiteColor,
                 borderRadius: const BorderRadius.vertical(
